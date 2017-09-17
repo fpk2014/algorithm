@@ -12,9 +12,10 @@ void print(int *a, const int length){
 
 //希尔插入其实是插入排序的扩展版
 void InsertSort(int *a, const int length, const int division){
+	int j, tmp;
 	for(int i=division; i<length; i++){
-		int	j = i - division;
-		int tmp = a[i];
+		j = i - division;
+		tmp = a[i];
 		a[i] = a[i-division];
 		while(j>=0 && a[j] > tmp){
 			a[j+division] = a[j];
