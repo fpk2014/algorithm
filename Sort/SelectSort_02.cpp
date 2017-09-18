@@ -10,6 +10,7 @@ void print(int *a, const int length){
 	cout << endl;
 }
 
+//二元选择排序
 void SelectSort(int r[],int length){  
  	int i ,j , min ,max, tmp;  
 	for (i=0 ;i < length/2;i++){    
