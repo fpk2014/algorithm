@@ -14,7 +14,7 @@ void InsertSort(int *a, const int length){
 	for(int i=1; i<length; i++){
 		int tmp = a[i];
 		int j = i-1;
-		while(j>0 && a[j] > tmp){
+		while(j>=0 && a[j] > tmp){
 			a[j+1] = a[j];
 			j--;
 		}

@@ -10,8 +10,7 @@ void print(int *a, const int length){
 	cout << endl;
 }
 
-void QuickSort(int a[], int low, int high)  {  
-	print(a, 6);
+void QuickSort(int a[], const int low, const int high)  {  
 	if (low< high){        
 		int i = low, j = high, x = a[low];  
         	while (i < j){  
@@ -19,12 +18,10 @@ void QuickSort(int a[], int low, int high)  {
 		       		j--;   
             		if(i < j)  
              	  		a[i++] = a[j];  
-			print(a, 6);
 			while(i < j && a[i]< x)  // 从左向右找第一个大于等于x的数  
                 		i++;   
             		if(i < j)  
               	 	 	a[j--] = a[i];  
-			print(a, 6);
         	}  
         	a[i] = x;  
 		QuickSort(a, low, i - 1); 
@@ -37,6 +34,6 @@ int main(){
 	int my_array[length] = {12,4,13,3,6,8};	
 
 	QuickSort(my_array, 0, length-1);
-
+	print(my_array, 6);
 	return 0;
 }
