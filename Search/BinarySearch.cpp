@@ -1,7 +1,13 @@
 #include <iostream>
 
-using std::cout;
-using std::endl;
+using namespace std;
+
+void print(int *a, const int length){
+	for(int i=0; i<length; i++){
+		cout << a[i] << " ";
+	}
+	cout << endl;
+}
 
 int BinarySearch(const int *a,
 				  const int length,
@@ -24,14 +30,10 @@ int BinarySearch(const int *a,
 
 
 int main(){
-	const int length = 5;
-	int my_array[length] = {1,3,4,5,7};
-
+	const int length = 4;
+	int my_array[length] = {1, 2, 4, 5};
 	for(int i=0; i<length; i++){
 		if(BinarySearch(my_array, length, my_array[i])==-1)
-			cout << i << endl;
+			cout << i << " error" << endl;
 	}
-
-
-
 }
