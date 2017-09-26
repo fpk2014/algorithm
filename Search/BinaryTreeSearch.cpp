@@ -3,16 +3,14 @@
 
 using namespace std;
 
-struct node{
+typedef struct btnode{
 	int value;
-	struct node *left;
-	struct node *right;
-};
+	struct btnode *left;
+	struct btnode *right;
+}node, *btree;
 
-typedef struct node tree;
-
-void insert(tree **t, int value){
-	node *tmp = NULL;	
+void insert(btree *t, int value){
+	node *tmp = NULL;
 	if((*t) == NULL){
 		tmp = (node *) malloc(sizeof(node));
 		tmp->left = tmp->right = NULL;
@@ -28,7 +26,7 @@ void insert(tree **t, int value){
 	}
 }
 
-void delTree(tree *t){
+void delTree(btree t){
 	if(t != NULL){
 		delTree(t->left);
 		delTree(t->right);
@@ -37,7 +35,7 @@ void delTree(tree *t){
 }
 
 
-void printPreorder(tree *t){
+void printPreorder(btree t){
 	if(t != NULL){
 		cout << t->value << " ";
 		printPreorder(t->left);
@@ -46,7 +44,7 @@ void printPreorder(tree *t){
 }
 
 //中序
-void printInorder(tree *t){
+void printInorder(btree t){
 	if(t != NULL ){
 		printInorder(t->left);
 		cout << t->value << " ";
@@ -55,7 +53,7 @@ void printInorder(tree *t){
 }
 
 
-void printPostorder(tree *t){
+void printPostorder(btree t){
 	if(t != NULL){
 		printPostorder(t->left);
 		printPostorder(t->right);	
@@ -63,7 +61,7 @@ void printPostorder(tree *t){
 	}
 }
 
-tree *BinaryTreeSearch(tree *t, const int key){
+btree BinaryTreeSearch(btree t, const int key){
 	if( t != NULL ){
 		if(key == t->value)
 			return t;
@@ -81,7 +79,7 @@ tree *BinaryTreeSearch(tree *t, const int key){
 int main(){
 	const int length = 6;
 	int my_array[length] = {5, 8, 2, 1, 4, 5};
-	tree *t = NULL;
+	btree t = NULL;
 	for(int i=0; i<length; i++)
 		insert(&t, my_array[i]);
 

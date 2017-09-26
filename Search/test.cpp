@@ -2,16 +2,25 @@
 
 using namespace std;
 
-typedef struct {
+typedef struct btnode{
 	int value;
-} TreeNode, *TreeNodePoint;
+	struct btnode *left;
+	struct btnode *right;
+}node, *btree;
 
-typedef struct{
-	TreeNodePoint min;
-	TreeNodePoint max;
-} Tree;
+
+void insert(btree t, int value){
+	node *tmp = NULL;
+	cout << value << endl;	
+	tmp = (node *) malloc(sizeof(node));
+	tmp->left = tmp->right = NULL;
+	tmp->value = value;
+	t = tmp;
+}
 
 int main(){
-	Tree t;
+	btree t = NULL;
+
+	cout << static_cast<const void *>(t) << endl;
 	return 0;
 }
