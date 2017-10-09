@@ -1,5 +1,4 @@
 #include <iostream>
-#include <malloc.h>
 
 using namespace std;
 
@@ -7,13 +6,13 @@ typedef struct btnode{
 	int value;
 	struct btnode *left;
 	struct btnode *right;
-}node, *btree;
+}node;
+
+typedef node* btree;
 
 void insert(btree *t, int value){
-	node *tmp = NULL;
 	if((*t) == NULL){
-		tmp = (node *) malloc(sizeof(node));
-		tmp->left = tmp->right = NULL;
+		node *tmp = new node();
 		tmp->value = value;
 		*t = tmp;
 		return;
@@ -30,7 +29,7 @@ void delTree(btree t){
 	if(t != NULL){
 		delTree(t->left);
 		delTree(t->right);
-		free(t);
+		delete t;
 	}	
 }
 
